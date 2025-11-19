@@ -57,15 +57,17 @@ export default function USPSection({ elevatorPitch, usps, achievements }: USPSec
           )}
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6" data-testid="container-usp-grid">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch" data-testid="container-usp-grid">
           {usps.map((usp, index) => (
             <motion.div
               key={index}
+              className="h-full"
               initial={{ opacity: 0, y: 50 }}
               animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <motion.div
+                className="h-full"
                 whileHover={{ 
                   scale: 1.05,
                   rotateY: 5,
@@ -75,10 +77,10 @@ export default function USPSection({ elevatorPitch, usps, achievements }: USPSec
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <Card 
-                  className="p-6 border-card-border hover-elevate active-elevate-2 transition-all duration-300 h-full"
+                  className="p-6 border-card-border hover-elevate active-elevate-2 transition-all duration-300 h-full min-h-[260px] flex flex-col gap-4"
                   data-testid={`card-usp-${index}`}
                 >
-                  <div className="mb-4">
+                  <div>
                     <div className="inline-flex p-3 rounded-lg bg-primary/10">
                       <usp.icon className="w-6 h-6 text-primary" data-testid="icon-usp" />
                     </div>
@@ -86,7 +88,7 @@ export default function USPSection({ elevatorPitch, usps, achievements }: USPSec
                   <h3 className="text-xl font-semibold mb-3" data-testid="text-usp-title">
                     {usp.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed" data-testid="text-usp-description">
+                  <p className="text-muted-foreground leading-relaxed flex-1" data-testid="text-usp-description">
                     {usp.description}
                   </p>
                 </Card>

@@ -78,13 +78,14 @@ export default function ProjectShowcase({ projects }: ProjectShowcaseProps) {
           ))}
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-testid="container-project-grid">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch" data-testid="container-project-grid">
           {isFiltering ? (
             Array.from({ length: 3 }).map((_, index) => <ProjectSkeleton key={index} />)
           ) : (
             <AnimatePresence mode="popLayout">
               {displayedProjects.map((project, index) => (
                 <motion.div
+                  className="h-full"
                   key={project.id}
                   initial={{ opacity: 0, y: 50, rotateX: 6 }}
                   animate={isVisible ? { opacity: 1, y: 0, rotateX: 0 } : { opacity: 0, y: 50 }}

@@ -3,7 +3,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export default function ProjectSkeleton() {
   return (
-    <Card className="p-6 border-card-border space-y-4">
+    <Card className="p-6 border-card-border space-y-4 h-full min-h-[420px]">
       <Skeleton className="h-4 w-20 rounded-full" />
       <Skeleton className="h-6 w-3/4" />
       <Skeleton className="h-4 w-full" />
